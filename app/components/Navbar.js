@@ -35,7 +35,7 @@ const Navbar = () => {
         
     ] 
     const ButtonLR = [
-        {text: 'Login',variant: 'outlined',src: '/rigestring'},
+        {text: 'Lognin',variant: 'outlined',src: '/api/auth/signin/credentials'},
         {text: 'SingUp',variant: 'contained',src: '/rigestring'}
     ]
 
