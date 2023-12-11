@@ -8,6 +8,7 @@ import { Divider } from "@mui/material";
 import { useSearchParams, useRouter } from "next/navigation";
 
 import { signIn } from 'next-auth/react'
+import Link from "next/link";
 
 export default function Singin() {
     const userName = useRef("")
@@ -82,7 +83,7 @@ export default function Singin() {
                                 </div>
                             </div>
                             <p class="text-sm font-light text-gray-500 dark:text-gray-400">
-                                Don’t have an account yet? <a href="#" className="font-medium text-cyan-600 hover:underline dark:text-primary-500">Sign up</a>
+                                Don’t have an account yet? <Link href="/rigestring" className="font-medium text-cyan-600 hover:underline dark:text-primary-500">Sign up</Link>
                             </p>
                         </form>
                     </div>

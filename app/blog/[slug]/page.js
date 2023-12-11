@@ -40,13 +40,13 @@ const blogPage = ({params}) => {
                     <div className=" bg-slate-600 m-2 rounded-xl p-3">
                       <div className="flex justify-center items-center">
                         <Avatar  
-                            alt={user.fullname}
+                            alt={user.username}
                             src={user.photo}
                             sx={{width: 100,height: 100}}
                         />
                       </div>
                       <div className=" text-zinc-200">
-                        <h1 className=" text-lg"> <AccountBox sx={{mr: '.5rem'}}/> created by: {user.fullname}</h1>
+                        <h1 className=" text-lg"> <AccountBox sx={{mr: '.5rem'}}/> created by: {user.username}</h1>
                         <p><PersonRemoveOutlined sx={{mr: '.5rem'}}/>subscriber: {counterSubscribe}</p>
                         <p> <AccessTime sx={{mr: '.5rem'}}/> date: {blog.date}</p>
                       </div> 

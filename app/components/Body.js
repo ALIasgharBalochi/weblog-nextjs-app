@@ -10,7 +10,7 @@ import CardContented from "./CardContent";
 import SkeletionLoadingCard from "./SkeletionLoadingCard";
 
 const Body = ({blogs,loading}) => {
-
+console.log('body blog:',blogs);
     const [showFab,setShowFab] = useState(false);
 
     const hendleBackToTop = () => {

@@ -12,6 +12,7 @@ const CardContented = ({blog,Loading}) => {
 
    const {data: User} = useGetUserQuery(blog?.user)
 
+   console.log("blog it is a :",blog);
     return(
         <Card sx={{ maxWidth: 345 }}>
         {Loading? (
@@ -49,7 +50,7 @@ const CardContented = ({blog,Loading}) => {
         </CardContent>
         {Loading? null :
         <>
-        <Typography variant="body2" color="text.secondary" sx={{fontSize: '.8rem',marginLeft: '.5rem'}}> created by: {User?.fullname} </Typography>
+        <Typography variant="body2" color="text.secondary" sx={{fontSize: '.8rem',marginLeft: '.5rem'}}> created by: {User?.username} </Typography>
         <Typography variant="body2" color="text.secondary" sx={{fontSize: '.8rem',marginLeft: '.5rem'}}> time: {blog.date} </Typography>
         </>
         }

@@ -13,6 +13,7 @@ const Pagination = ({blogPerPage}) => {
      const [blogOffset,setBlogOffset] = useState(0);
 
      const {data: blogs,isLoading} = useGetWeblogsQuery();
+     console.log('pagination:',blogs);
 
      const endOffset = blogOffset + blogPerPage;
 
