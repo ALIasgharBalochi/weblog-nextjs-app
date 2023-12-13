@@ -12,7 +12,6 @@ const CardContented = ({blog,Loading}) => {
 
    const {data: User} = useGetUserQuery(blog?.user)
 
-   console.log("blog it is a :",blog);
     return(
         <Card sx={{ maxWidth: 345 }}>
         {Loading? (

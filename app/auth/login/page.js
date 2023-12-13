@@ -26,12 +26,11 @@ export default function Singin() {
 
         try {
             const result = await signIn("credentials", {
-                username: userName.current,
+                name: userName.current,
                 password: password.current,
                 redirect: false,
                 callbackUrl
             })
-           console.log(result);
 
            if (!result?.error) {
             router.push(callbackUrl) 

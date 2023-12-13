@@ -37,24 +37,51 @@ const Rigestring = () => {
 
 
   const createBlog = async (value) => {
-    try {
-      await addNewUser({
-        id: nanoid(),
-        subscribers: 0,
-        username: value.fullname,
-        photo: value.photo,
-        email: value.email,
-        password: value.password
-      }).unwrap();
-        setUserAddereses(''),
-        setUserFullname(''),
-        setUserEmail(''),
-        setUserPassword(''),
-        toast.success('The user was created successfully')
-      router.push('/')
-    } catch (error) {
-      console.log('this is a error from-regestring:', error);
-    }
+    // try {
+    //   await addNewUser({
+    //     id: nanoid(),
+    //     subscribers: 0,
+    //     name: value.fullname,
+    //     photo: value.photo,
+    //     email: value.email,
+    //     password: value.password
+    //   }).unwrap();
+    //     setUserAddereses(''),
+    //     setUserFullname(''),
+    //     setUserEmail(''),
+    //     setUserPassword(''),
+    //     toast.success('The user was created successfully')
+    //   router.push('/')
+    // } catch (error) {
+    //   console.log('this is a error from-regestring:', error);
+    // }
+
+         try {
+           const res = await fetch("http://localhost:9000/users", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              id: nanoid(),
+              subscribers: 0,
+              name: value.fullname,
+              photo: value.photo,
+              email: value.email,
+              password: value.password
+
+            }),
+          });
+        
+          if (!res.ok) {
+            setError((await res.json()).message);
+            return;
+          }
+        
+          router.push("/api/auth/signin");
+        } catch (err) {
+          setError(err);
+        }
   }
 
   const formik = useFormik({

@@ -21,12 +21,7 @@ const Navbar = () => {
 
   const router = useRouter()
 
-  const { data: Session } = useSession({
-    required: true,
-    onUnauthenticated() {
-      redirect('/api/auth/signin?callbackUrl=/')
-    }
-  })
+  const { data: session, status } = useSession()
 
 
   const handleClick = (event) => {
@@ -89,7 +84,14 @@ const Navbar = () => {
         ))}
         {ButtonMenu}
       </div>
-      {Session ? <p>{Session.user.name}</p> :
+      {session?.user ?
+        <div className=" ml-auto flex flex-col items-center">
+          <div className="  w-10 h-10 ">
+            <img className=" rounded-full" src={session.user.image} />
+          </div>
+          <h1 className=" text-gray-500">{session.user.name}</h1>
+        </div>
+        :
 
         <div className="max-[900px]:hidden">
           {ButtonLR.map((button, index) => (
