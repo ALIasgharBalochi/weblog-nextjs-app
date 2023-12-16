@@ -1,7 +1,7 @@
 
 import Grid from "@mui/material/Unstable_Grid2/Grid2";
 
-import CardContented from "./CardContent";
+import CardContented from "./CardContent/CardContent";
 
 const SkeletionLoadingCard = ({Loading}) => {
     // skeletion for body page

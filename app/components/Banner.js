@@ -16,10 +16,7 @@ const Banner = () => {
     const {data: blogs,isLoading} = useGetWeblogsQuery();
 
     useEffect(() => {
-        if (isLoading) {
-            console.log('isLoandig');
-        }else{
-
+        if (!isLoading) {
             setRandomBlog(blogs[Math.floor(Math.random() * blogs.length)])
         }
     },[isLoading])

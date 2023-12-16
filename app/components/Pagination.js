@@ -5,7 +5,7 @@ import { useState,useEffect } from "react";
 import ReactPaginate from "react-paginate";
 
 import { useGetWeblogsQuery } from "../redux/weblogApi";
-import Body from "./Body";
+import Body from "./Body/Body";
 
 const Pagination = ({blogPerPage}) => {
      const [sortedBlogs,setSortedBlogs] = useState([]);

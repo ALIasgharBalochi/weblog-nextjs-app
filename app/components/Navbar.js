@@ -1,7 +1,7 @@
 'use client'
 import { useState } from "react";
 
-import { useRouter, redirect } from 'next/navigation'
+import { useRouter } from 'next/navigation'
 
 import Link from "next/link";
 
@@ -21,7 +21,7 @@ const Navbar = () => {
 
   const router = useRouter()
 
-  const { data: session, status } = useSession()
+  const { data: session } = useSession()
 
 
   const handleClick = (event) => {
@@ -32,9 +32,9 @@ const Navbar = () => {
   };
 
   const actionButton = [
+    { text: 'createblog', variant: 'text', icon: <Create sx={{ width: '1rem', height: '1rem' }} />, src: '/createBlog' },
     { text: 'home', variant: 'text', icon: <Home sx={{ width: '1rem', height: '1rem' }} />, src: '/' },
     { text: 'newblogs', variant: 'text', icon: <NewReleases sx={{ width: '1rem', height: '1rem' }} />, src: '/' },
-    { text: 'createblog', variant: 'text', icon: <Create sx={{ width: '1rem', height: '1rem' }} />, src: '/createBlog' },
     { text: 'about', variant: 'text', icon: <DoDisturbOn sx={{ width: '1rem', height: '1rem' }} />, src: '/' },
 
   ]
