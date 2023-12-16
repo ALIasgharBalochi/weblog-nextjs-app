@@ -7,14 +7,18 @@ import { Divider } from "@mui/material";
 
 import { useSearchParams, useRouter } from "next/navigation";
 
-import { signIn } from 'next-auth/react'
+import { signIn ,useSession} from 'next-auth/react'
+
 import Link from "next/link";
+import { nanoid } from "@reduxjs/toolkit";
 
 export default function Singin() {
     const userName = useRef("")
     const password = useRef("")
 
     const [error, setError] = useState(null)
+
+    const {data: session} = useSession()
 
     const searchParams = useSearchParams()
     const callbackUrl = searchParams.get('callbackUrl') || '/'
@@ -26,6 +30,7 @@ export default function Singin() {
 
         try {
             const result = await signIn("credentials", {
+                id: nanoid(),
                 name: userName.current,
                 password: password.current,
                 redirect: false,
@@ -42,6 +47,8 @@ export default function Singin() {
             setError(error);
         }
     }
+
+
 
     return (
         <section className="bg-gray-50 dark:bg-gray-900">
@@ -76,7 +83,7 @@ export default function Singin() {
                             </div>
                             <button type="submit" className="w-full text-white bg-cyan-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Sign in</button>
                             <Divider light={true}>or</Divider>
-                            <div onClick={() => signIn("github",{callbackUrl: '/'})}>
+                            <div onClick={() => signIn("github",{callbackUrl: '/'}) }>
                                 <div className=" cursor-pointer border-solid border-2 border-gray-500 rounded-md hover:bg-gray-700 text-slate-400 hover:text-slate-300 py-2 flex items-center justify-center">
                                     <GitHub sx={{ marginX: '.5rem' }} /> Login width GitHub
                                 </div>

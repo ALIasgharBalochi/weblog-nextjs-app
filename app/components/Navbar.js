@@ -86,10 +86,20 @@ const Navbar = () => {
       </div>
       {session?.user ?
         <div className=" ml-auto flex flex-col items-center">
-          <div className="  w-10 h-10 ">
-            <img className=" rounded-full" src={session.user.image} />
+          {session?.user.image ?
+            <div className=" p-2 flex flex-col items-center">
+              <div className="  w-10 h-10 ">
+                <img className=" rounded-full" src={session.user.image} />
+              </div>
+
+              <h1 className=" text-gray-500">{session.user.name}</h1>
+            </div>
+            :
+
+          <div>
+            <h1 className=" text-gray-500 text-lg mx-2">hello{" "}{session.user.name}</h1>
           </div>
-          <h1 className=" text-gray-500">{session.user.name}</h1>
+          }
         </div>
         :
 

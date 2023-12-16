@@ -4,7 +4,6 @@ export const createBlogSchema = object({
     title: string().required(),
     imageUrl: string().url().required(),
     content: string().required(),
-    userSelector: string().required()
 })
 
 
